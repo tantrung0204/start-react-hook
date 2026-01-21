@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  .header-container {
+    .navbar-nav {
+      .nav-link {
+        &.active {
+          // & cho biết .nav-link và .active ngang hàng
+          color: aqua;
+        }
+      }
+
+      // .active {
+      //   color: red;
+      // }
+    }
+
+    //  .nav-link.active {
+    //   color: red;
+    // }
+  }
+}
