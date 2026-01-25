@@ -8,11 +8,12 @@ import {
     SidebarFooter,
     SidebarContent,
 } from 'react-pro-sidebar';
-import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
+import { FaGem } from 'react-icons/fa';
 import sidebarBg from '../../assets/bg2.jpg';
 import { DiReact } from "react-icons/di";
 import { MdDashboard } from "react-icons/md";
 import './SideBar.scss'
+import { Link } from 'react-router-dom';
 
 const SideBar = (props) => {
     const { image, collapsed, toggled, handleToggleSidebar } = props;
@@ -51,6 +52,7 @@ const SideBar = (props) => {
                             icon={<MdDashboard />}
                         >
                             Dashboard
+                            <Link to="/admins" />
                         </MenuItem>
                     </Menu>
                     <Menu iconShape="circle">
@@ -58,7 +60,7 @@ const SideBar = (props) => {
                             icon={<FaGem />}
                             title={"Features"}
                         >
-                            <MenuItem>Users Management</MenuItem>
+                            <MenuItem>Users Management<Link to="/admins/manage-users" /></MenuItem>
                             <MenuItem>Quizzes Management</MenuItem>
                             <MenuItem>Questions Management</MenuItem>
                         </SubMenu>

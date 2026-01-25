@@ -9,7 +9,7 @@ const Header = () => {
         <Navbar expand="lg" bg='light' className="bg-body-tertiary">
             <Container>
                 {/* <Navbar.Brand href="/">NewVerse</Navbar.Brand> */}
-                <NavLink to={"/"} className="navbar-brand">NewVerse</NavLink>
+                <NavLink to={"/"} className="navbar-brand">JunNguyen</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
