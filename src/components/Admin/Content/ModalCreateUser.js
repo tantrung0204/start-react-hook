@@ -57,6 +57,7 @@ const ModalCreateUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
+            await props.fetchListUsers();
         }
 
         if (data && data.EC !== 0) {
@@ -131,7 +132,7 @@ const ModalCreateUser = (props) => {
 
                         <div className='col-md-12 img-preview'>
                             {previewImage ?
-                                <img src={previewImage} />
+                                <img src={previewImage} alt="preview" />
                                 :
                                 <span>Preview Image</span>
                             }
