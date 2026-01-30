@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Admin = (props) => {

@@ -16,7 +16,7 @@ import './SideBar.scss'
 import { Link } from 'react-router-dom';
 
 const SideBar = (props) => {
-    const { image, collapsed, toggled, handleToggleSidebar } = props;
+    const { collapsed, toggled, handleToggleSidebar } = props;
     return (
         <>
             <ProSidebar
