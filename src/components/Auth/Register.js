@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import './Login.scss';
+import './Register.scss';
 import { useNavigate } from 'react-router-dom';
-import { postLogin } from '../../services/apiServices'
+import { postRegister } from '../../services/apiServices'
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const Login = (props) => {
+const Register = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
     const [isShowPassword, setIsShowPassword] = useState(false);
     const navigate = useNavigate();
 
@@ -19,7 +20,7 @@ const Login = (props) => {
             );
     };
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
         // validate
         const isValidEmail = validateEmail(email);
         if (!isValidEmail) {
@@ -33,10 +34,10 @@ const Login = (props) => {
         }
 
         // submit api
-        let data = await postLogin(email, password);
+        let data = await postRegister(email, username, password);
         if (data && data.EC === 0) {
             toast.success(data.EM);
-            navigate('/');
+            navigate('/login');
         }
 
         if (data && data.EC !== 0) {
@@ -46,31 +47,33 @@ const Login = (props) => {
     }
 
     return (
-        <div className="login-container">
+        <div className="register-container">
             <div className='header'>
-                <span>Don't have an account yet?</span>
-                <button onClick={() => navigate('/register')}>Sign up</button>
+                <span>Already have an account?</span>
+                <button onClick={() => navigate('/login')}>Log in</button>
             </div>
             <div className='title col-4 mx-auto'>
                 JunNguyen
             </div>
             <div className='welcome col-4 mx-auto'>
-                Hello, who's this?
+                Start your journey?
             </div>
             <div className='content-form col-4 mx-auto'>
                 <div className='form-group'>
-                    <label>Email</label>
+                    <label>Email(*)</label>
                     <input type='email'
                         className='form-control'
                         value={email}
+                        required
                         onChange={(event) => setEmail(event.target.value)} />
                 </div>
                 <div className='form-group pass-group'>
-                    <label>Password</label>
+                    <label>Password(*)</label>
                     <input
                         type={isShowPassword ? 'text' : 'password'}
                         className='form-control'
                         value={password}
+                        required
                         onChange={(event) => setPassword(event.target.value)} />
                     {isShowPassword ?
                         <span className='icon-eye'
@@ -84,13 +87,19 @@ const Login = (props) => {
                         </span>
                     }
                 </div>
-                <span className='forgot-password'>Forgot password?</span>
+                <div className='form-group'>
+                    <label>Username</label>
+                    <input type='username'
+                        className='form-control'
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)} />
+                </div>
                 <div>
                     <button
                         className='btn-submit'
-                        onClick={() => handleLogin()}
+                        onClick={() => handleRegister()}
                     >
-                        Login to JunNguyen
+                        Create my free account
                     </button>
                 </div>
                 <div className='text-center'>
@@ -103,4 +112,4 @@ const Login = (props) => {
     );
 }
 
-export default Login;
+export default Register;
